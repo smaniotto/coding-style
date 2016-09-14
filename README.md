@@ -2,7 +2,7 @@
 
 Look ma, I can code with *style*.
 
-This guide aims to document some coding styles in the languages that I use, currently Python. Since I'm mostly using Django, the examples may be from it.
+This guide aims to document coding styles for the languages that I use, currently Python. Since I'm mostly using Django, the examples may be from it.
 
 It is open for the community contribution, just make a pull request and lets discuss it.
 
@@ -22,7 +22,7 @@ Based on [PEP8](https://www.python.org/dev/peps/pep-0008/) and [Django](https://
 1. [Python Documentation](#python-documentation)
 
 ### 2.1 Python Syntax
-Line width should have maximum 79 characters. Follow the PEP8 recommendations.
+Line width should have a maximum of 79 characters.
 
 When calling a method or class, use named arguments.
 ```python
@@ -37,7 +37,7 @@ members = get_members(
 members = get_members('Bob', 'Dev', 30)
 ```
 
-In a method or class arguments list, ommit the last comma.
+In a method or class argument list, omit the last comma.
 ```python
 # Good
 members = get_members(
@@ -70,7 +70,7 @@ members = get_members(age=30)
 members = get_members(first_name='Bob', last_name='Dev', profile_page='example.com/bod', age=30)
 ```
 
-Use simple if statments:
+Use simple if statements:
 ```python
 # Good
 if conditional:
@@ -84,7 +84,7 @@ else:
     return False
 ```
 
-If you statment is nice and short, you can simply more:
+If the statement is nice and short, simplify more:
 ```python
 # Good
 return True if conditional else False
@@ -97,16 +97,17 @@ else:
 ```
 
 ### 2.2 Python Variables
-Always use declarative variables name, even if its large.
+Always use declarative and meaningful variable names. Don't bother with long names:
 ```python
 # Good
 members = get_members(30)
+
 
 # Bad
 a = get_members(age=30)
 ```
 
-Use declarative names even in loop counters, indexes and iterable unpacking.
+Use declarative and meaningful names even in loop counters, indexes and iterables unpacking.
 ```python
 # Good
 for id, first_name in user.items():
@@ -134,7 +135,7 @@ class Foo(Object):
 
 ```
 
-In methods, use docstrings to describe its function, arguments and return:
+In methods, use docstrings to describe its function, arguments and return value:
 ```python
 # Good
 def Foo(self, first_name, age):
@@ -177,12 +178,12 @@ class Foo(Object):
     address = 'Wall Street'
 ```
 
-In a file outside the project defaults (like Django's models.py, views.py), use a docstring at its beginning to describe its utility:
+In a file outside the project defaults (like Django's models.py, views.py), use a docstring at its beginning to describe the utility:
 ```python
 # Good
 # file helpers/picture.py
 """
-This module has utilities to create, manage and destroy pictures.
+This module have utilities to create, manage and destroy pictures.
 """
 ...
 
@@ -193,7 +194,7 @@ This module has utilities to create, manage and destroy pictures.
 ```
 
 ## 3. References
-This coding style was inspired by [LFeh/coding-style](https://github.com/LFeh/coding-style).
+Was inspired by [LFeh/coding-style](https://github.com/LFeh/coding-style).
 
 ## 4. License
 [MIT License](https://opensource.org/licenses/MIT).
