@@ -14,25 +14,186 @@ It is open for the community contribution, just make a pull request and lets dis
 1. [License](#license)
 
 ## 1. Python
+Based on [PEP8](https://www.python.org/dev/peps/pep-0008/) and [Django](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/).
 
 ### Python Summary
 1. [Python Syntax](#python-syntax)
 1. [Python Variables](#python-variables)
+1. [Python Documentation](#python-documentation)
 
 ### 2.1 Python Syntax
-Here's go the description, and below, the examples.
+Line width should have maximum 79 characters. Follow the PEP8 recommendations.
+
+When calling a method or class, use named arguments.
 ```python
 # Good
-var = value
+members = get_members(
+    first_name='Bob',
+    last_name='Dev',
+    age=30
+)
 
 # Bad
-var=value
+members = get_members('Bob', 'Dev', 30)
+```
+
+In a method or class arguments list, ommit the last comma.
+```python
+# Good
+members = get_members(
+    first_name='Bob',
+    last_name='Dev',
+    age=30
+)
+
+# Bad
+members = get_members(
+    first_name='Bob',
+    last_name='Dev',
+    age=30,
+)
+```
+
+When calling a method or class, put the arguments in a new indented line if the width is more then 79 characters.
+```python
+# Good
+members = get_members(
+    first_name='Bob',
+    last_name='Dev',
+    age=30
+)
+
+# Good
+members = get_members(age=30)
+
+# Bad
+members = get_members(first_name='Bob', last_name='Dev', profile_page='example.com/bod', age=30)
+```
+
+Use simple if statments:
+```python
+# Good
+if conditional:
+    return True
+return False
+
+# Bad
+if conditional:
+    return True
+else:
+    return False
+```
+
+If you statment is nice and short, you can simply more:
+```python
+# Good
+return True if conditional else False
+
+# Bad
+if conditional:
+    return True
+else:
+    return False
 ```
 
 ### 2.2 Python Variables
+Always use declarative variables name, even if its large.
+```python
+# Good
+members = get_members(30)
 
-## 2. References
+# Bad
+a = get_members(age=30)
+```
+
+Use declarative names even in loop counters, indexes and iterable unpacking.
+```python
+# Good
+for id, first_name in user.items():
+    print(id, first_name)
+
+# Bad
+for i, n in user.items():
+    print(i, n)
+
+```
+
+### 2.3 Python Documentation
+In classes, use just a simple docstring for description:
+```python
+# Good
+class Foo(Object):
+    """
+    Does this and does that.
+    """
+    ...
+
+# Bad
+class Foo(Object):
+    ...
+
+```
+
+In methods, use docstrings to describe its function, arguments and return:
+```python
+# Good
+def Foo(self, first_name, age):
+    """ 
+    Does this and does that.
+        
+    Arguments:
+    <string> first_name -- User irst_name.
+    <int> -- User age.
+
+    Returns:
+        User information if success. False otherwhise.
+    """ 
+    ...
+
+# Bad
+def Foo(self, first_name, age):
+    ...
+```
+
+When declaring class attributes outside the `__init__` method, comment on each logical block:
+```python
+# Good
+class Foo(Object):
+    # User information
+    first_name = 'Bob'
+    age = 30
+
+    # User social media
+    twitter_profile = '@bob'
+    facebook_profile = 'facebook.com/bob'
+
+# Bad
+class Foo(Object):
+    first_name = 'Bob'
+    twitter_profile = '@bob'
+    age = 30
+    city = 'New York'
+    facebook_profile = 'facebook.com/bob'
+    address = 'Wall Street'
+```
+
+In a file outside the project defaults (like Django's models.py, views.py), use a docstring at its beginning to describe its utility:
+```python
+# Good
+# file helpers/picture.py
+"""
+This module has utilities to create, manage and destroy pictures.
+"""
+...
+
+# Bad
+# file helpers/picture.py
+...
+
+```
+
+## 3. References
 This coding style was inspired by [LFeh/coding-style](https://github.com/LFeh/coding-style).
 
-## 3. License
+## 4. License
 [MIT License](https://opensource.org/licenses/MIT).
