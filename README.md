@@ -24,7 +24,7 @@ Based on [PEP8](https://www.python.org/dev/peps/pep-0008/) and [Django](https://
 ### 2.1 Python Syntax
 Line width should have a maximum of 79 characters.
 
-When calling a method or class, use named arguments.
+When calling a method or class, use named arguments or descriptive variable names.
 ```python
 # Good
 members = get_members(
@@ -32,6 +32,12 @@ members = get_members(
     last_name='Dev',
     age=30
 )
+
+# Also good
+first_name = 'Bob'
+last_name = 'Dev'
+age = 30
+members = get_members(first_name, last_name, age)
 
 # Bad
 members = get_members('Bob', 'Dev', 30)
